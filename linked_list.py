@@ -15,6 +15,7 @@ class LinkedList:
 
     def __init__(self) -> None:
         self.head = None
+        self.next = None
         self.ll_list = deque()
 
     def __repr__(self) -> str:
@@ -28,7 +29,11 @@ class LinkedList:
         self.next = None
 
     def insertAtBegin(self, data):
-        self.next = self.ll_list[0]
+        try:
+            self.next = self.ll_list[0]
+        except IndexError:
+            self.next = None
+
         self.ll_list.appendleft(data)
 
     def insertAtIndex(self, data, index):
@@ -43,10 +48,10 @@ class LinkedList:
 
 ll_test: LinkedList = LinkedList()
 
-ll_test.insertAtEnd('A')
-ll_test.insertAtEnd('B')
+ll_test.insertAtBegin('A')
+ll_test.insertAtBegin('B')
 ll_test.insertAtEnd('C')
-ll_test.insertAtIndex('D', 0)
+ll_test.insertAtIndex('C', 0)
 
 print(ll_test)
 print(ll_test.next)
