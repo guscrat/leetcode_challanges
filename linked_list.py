@@ -25,21 +25,30 @@ class LinkedList:
 
     def insertAtEnd(self, data):
         self.ll_list.append(Node(data))
+        self.next = None
 
     def insertAtBegin(self, data):
         self.next = self.ll_list[0]
         self.ll_list.appendleft(data)
 
+    def insertAtIndex(self, data, index):
+        if index == 0:
+            self.insertAtBegin(data)
+
+        if index > len(self.ll_list):
+            return 'Index out of range'
+
+        self.ll_list[index] = data
+
+
+
 
 ll_test: LinkedList = LinkedList()
 
-ll_test.insertAtEnd(1)
-ll_test.insertAtEnd(2)
-ll_test.insertAtBegin(2)
-ll_test.insertAtEnd(1)
-ll_test.insertAtEnd(2)
-ll_test.insertAtBegin(2)
-
+ll_test.insertAtEnd('A')
+ll_test.insertAtEnd('B')
+ll_test.insertAtEnd('C')
+ll_test.insertAtIndex('D', 0)
 
 print(ll_test)
 print(ll_test.next)
