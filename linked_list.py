@@ -1,22 +1,45 @@
-from typing import Any
+from collections import deque
 
 
 class Node:
 
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
     def __repr__(self) -> str:
-        return f'{self.__dict__}'
-
-    def new_node(self, item: str, value: int) -> Any:
-        self.__dict__[item] = value
-
-    def next_node(self, )
+        return f'{self.data}'
 
 
-linked_list: Node = Node()
+class LinkedList:
 
-linked_list.new_node('A', 6)
-linked_list.new_node('B', 3)
-linked_list.new_node('C', 4)
-linked_list.new_node('D', 2)
-linked_list.new_node('E', 1)
-print(linked_list)
+    def __init__(self) -> None:
+        self.head = None
+        self.ll_list = deque()
+
+    def __repr__(self) -> str:
+        return f'{self.__dict__["ll_list"]}'
+
+    def next(self):
+        return f'{self.next}'
+
+    def insertAtEnd(self, data):
+        self.ll_list.append(Node(data))
+
+    def insertAtBegin(self, data):
+        self.next = self.ll_list[0]
+        self.ll_list.appendleft(data)
+
+
+ll_test: LinkedList = LinkedList()
+
+ll_test.insertAtEnd(1)
+ll_test.insertAtEnd(2)
+ll_test.insertAtBegin(2)
+ll_test.insertAtEnd(1)
+ll_test.insertAtEnd(2)
+ll_test.insertAtBegin(2)
+
+
+print(ll_test)
+print(ll_test.next)
