@@ -19,13 +19,14 @@ class LinkedList:
         self.ll_list = deque()
 
     def __repr__(self) -> str:
+        # return {print(i) for i in self.__dict__["ll_list"]}
         return f'{self.__dict__["ll_list"]}'
 
     def next(self):
         return f'{self.next}'
 
     def insertAtEnd(self, data):
-        self.ll_list.append(Node(data))
+        self.ll_list.append(data)
         self.next = None
 
     def insertAtBegin(self, data):
@@ -45,13 +46,19 @@ class LinkedList:
 
         self.ll_list[index] = data
 
+        try:
+            self.next = self.ll_list[index + 1]
+        except IndexError:
+            self.next = None
+
 
 ll_test: LinkedList = LinkedList()
 
 ll_test.insertAtBegin('A')
 ll_test.insertAtBegin('B')
-ll_test.insertAtEnd('C')
-ll_test.insertAtIndex('C', 0)
+ll_test.insertAtEnd('E')
+ll_test.insertAtEnd('F')
+ll_test.insertAtIndex('W', 3)
 
 print(ll_test)
 print(ll_test.next)
