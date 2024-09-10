@@ -41,8 +41,6 @@ class LinkedList:
         self.ll_list[index] = data
 
 
-
-
 ll_test: LinkedList = LinkedList()
 
 ll_test.insertAtEnd('A')
